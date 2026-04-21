@@ -481,15 +481,16 @@ footer::before{
   background:var(--bg-2);border:1px solid var(--line);border-radius:20px;
   overflow:hidden;cursor:pointer;position:relative;
   transition:all .4s cubic-bezier(.2,.8,.2,1);
+  display:flex;flex-direction:column;
 }
 .member-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px -16px rgba(13,119,186,.25)}
 .member-card.feat{background:var(--blue-ink)}
 .member-card.warm{background:linear-gradient(135deg,#8A6FD6,#4F3A85)}
 .member-card.sky{background:var(--sky)}
-.m-span-6{grid-column:span 6}
-.m-span-4{grid-column:span 4}
-.m-span-3{grid-column:span 3}
-.member-portrait{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--bg)}
+.m-span-6{grid-column:span 6;min-height:540px}
+.m-span-4{grid-column:span 4;min-height:480px}
+.m-span-3{grid-column:span 3;min-height:420px}
+.member-portrait{flex:1;position:relative;overflow:hidden;background:var(--bg)}
 .member-card.feat .member-portrait{background:var(--blue-ink)}
 .member-card.warm .member-portrait{background:linear-gradient(135deg,#8A6FD6,#4F3A85)}
 .member-card.sky .member-portrait{background:var(--sky)}
@@ -507,7 +508,14 @@ footer::before{
 }
 .member-card.feat .member-portrait::before{background:repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.06) 18px 19px)}
 .member-card.warm .member-portrait::before{background:repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.06) 18px 19px)}
-.member-body{padding:22px 24px 24px}
+.member-body{
+  position:absolute;bottom:0;left:0;right:0;z-index:10;
+  padding:56px 24px 24px;
+  background:linear-gradient(to bottom,transparent 0%,var(--bg-2) 45%);
+}
+.member-card.feat .member-body{background:linear-gradient(to bottom,transparent 0%,var(--blue-ink) 45%)}
+.member-card.warm .member-body{background:linear-gradient(to bottom,transparent 0%,#4F3A85 45%)}
+.member-card.sky .member-body{background:linear-gradient(to bottom,transparent 0%,var(--sky) 45%)}
 .member-body .m-role{
   font-family:var(--font-mono),monospace;font-size:10px;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--muted);margin-bottom:10px;

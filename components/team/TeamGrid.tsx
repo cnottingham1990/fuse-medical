@@ -63,7 +63,7 @@ export default function TeamGrid() {
                     src={m.photo}
                     alt={m.name}
                     fill
-                    style={{ objectFit: 'cover', objectPosition: 'top' }}
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
                     sizes="(max-width:768px) 100vw, 50vw"
                   />
                 ) : (
