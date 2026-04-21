@@ -6,15 +6,16 @@ import { TEAM, AV_GRADIENTS, type TeamMember } from './teamData'
 type Filter = 'all' | 'clinical' | 'support' | 'ops'
 type CardStyle = 'feat' | 'warm' | 'sky' | ''
 
-// shift: negative = move subject UP (crop more from top), positive = move DOWN
+// shift: positive = subject moves DOWN in card (shows more of top of photo)
+//        negative = subject moves UP in card (shows more of bottom of photo)
 const LAYOUT: Record<string, { span: number; style: CardStyle; shift?: number }> = {
-  tammy:    { span: 6, style: 'feat', shift: -8 },
-  devin:    { span: 6, style: 'warm', shift: 6 },
-  hannah:   { span: 4, style: '',     shift: 6 },
+  tammy:    { span: 6, style: 'feat' },
+  devin:    { span: 6, style: 'warm' },
+  hannah:   { span: 4, style: '' },
   cheyenne: { span: 4, style: 'sky' },
-  bobbie:   { span: 4, style: 'feat', shift: -8 },
+  bobbie:   { span: 4, style: 'feat' },
   alyssa:   { span: 4, style: 'warm' },
-  quinn:    { span: 4, style: '',     shift: 8 },
+  quinn:    { span: 4, style: '' },
   krystal:  { span: 4, style: 'sky' },
   breckan:  { span: 3, style: 'warm' },
   josie:    { span: 3, style: '' },
@@ -67,7 +68,7 @@ export default function TeamGrid() {
                     style={{
                       objectFit: 'cover',
                       objectPosition: 'center',
-                      transform: shift !== undefined ? `scale(1.2) translateY(${shift}%)` : undefined,
+                      transform: shift !== undefined ? `scale(1.08) translateY(${shift}%)` : undefined,
                     }}
                     sizes="(max-width:768px) 100vw, 50vw"
                   />
