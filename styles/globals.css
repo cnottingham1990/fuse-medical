@@ -53,6 +53,12 @@ nav.top .middle a {
 }
 nav.top .middle a:hover{background:rgba(255,255,255,.15)}
 nav.top .middle a.active{border:1px solid currentColor}
+.btn-book{
+  font-family:var(--font-mono),monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:8px 14px;border:1px solid currentColor;border-radius:999px;
+  text-decoration:none;color:inherit;transition:background .2s,color .2s;
+}
+.btn-book:hover{background:currentColor;color:var(--ink)}
 nav.top .right{justify-self:end;display:flex;align-items:center;gap:16px}
 nav.top .right .mono{font-size:11px}
 nav.top .right .dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:blink 2s ease-in-out infinite}

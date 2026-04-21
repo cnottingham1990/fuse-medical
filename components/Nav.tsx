@@ -19,11 +19,14 @@ export default function Nav() {
         <div className="brand-txt">Fuse</div>
       </Link>
       <div className="middle">
-        {links.map(({ href, label }) => (
-          <Link key={href} href={href} className={pathname === href ? 'active' : ''}>
-            {label}
-          </Link>
-        ))}
+        {links.map(({ href, label }) => {
+          const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href)
+          return (
+            <Link key={href} href={href} className={isActive ? 'active' : ''}>
+              {label}
+            </Link>
+          )
+        })}
       </div>
       <div className="right">
         <span className="dot" />
