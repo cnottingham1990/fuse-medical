@@ -10,7 +10,7 @@ export default function Ticker() {
     <div className="ticker-wrap">
       <div className="ticker">
         {doubled.map((item, i) => (
-          <span key={i}>{item}</span>
+          <span key={`${item}-${i}`}>{item}</span>
         ))}
       </div>
     </div>

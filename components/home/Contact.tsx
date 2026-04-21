@@ -43,16 +43,22 @@ export default function Contact() {
             </div>
             <form onSubmit={(e) => e.preventDefault()}>
               <div className="f-field">
-                <label>Email *</label>
-                <input type="email" required />
+                <label htmlFor="email">Email *</label>
+                <input type="email" id="email" name="email" required />
               </div>
               <div className="f-row">
-                <div className="f-field"><label>Name *</label><input type="text" required /></div>
-                <div className="f-field"><label>Phone *</label><input type="tel" required /></div>
+                <div className="f-field">
+                  <label htmlFor="name">Name *</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div className="f-field">
+                  <label htmlFor="phone">Phone *</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
               </div>
               <div className="f-field">
-                <label>Message</label>
-                <textarea placeholder="Type your message here" />
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" placeholder="Type your message here" />
               </div>
               <button className="submit" type="submit">Send message →</button>
             </form>
