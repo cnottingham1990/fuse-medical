@@ -72,10 +72,6 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="scroll-ind">
-        <span>Scroll</span>
-        <span className="ln" />
-      </div>
     </section>
   )
 }
