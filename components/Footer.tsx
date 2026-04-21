@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer>
       <div className="footer-wrap">
+        <Image src="/images/fuse-logo.png" alt="Fuse Medical" width={120} height={72} style={{ objectFit: 'contain', marginBottom: '1.5rem' }} />
         <div className="footer-mega">
           Let&apos;s care<br />for you — <span className="it">together.</span>
         </div>

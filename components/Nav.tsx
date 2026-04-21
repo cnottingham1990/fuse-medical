@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const links = [
@@ -15,8 +16,7 @@ export default function Nav() {
   return (
     <nav className="top" id="topnav">
       <Link href="/" className="brand">
-        <div className="brand-ring" />
-        <div className="brand-txt">Fuse</div>
+        <Image src="/images/fuse-logo.png" alt="Fuse Medical" width={100} height={60} style={{ objectFit: 'contain' }} />
       </Link>
       <div className="middle">
         {links.map(({ href, label }) => {
@@ -29,7 +29,6 @@ export default function Nav() {
         })}
       </div>
       <div className="right">
-        <span className="dot" />
         <span className="mono">London, KY</span>
         <span className="mono">·</span>
         <span className="mono">(606) 770‑5161</span>
