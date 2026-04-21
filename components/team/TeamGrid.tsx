@@ -6,14 +6,14 @@ import { TEAM, AV_GRADIENTS, type TeamMember } from './teamData'
 type Filter = 'all' | 'clinical' | 'support' | 'ops'
 type CardStyle = 'feat' | 'warm' | 'sky' | ''
 
-const LAYOUT: Record<string, { span: number; style: CardStyle }> = {
-  tammy:    { span: 6, style: 'feat' },
-  devin:    { span: 6, style: 'warm' },
-  hannah:   { span: 4, style: '' },
+const LAYOUT: Record<string, { span: number; style: CardStyle; pos?: string }> = {
+  tammy:    { span: 6, style: 'feat', pos: 'center 20%' },
+  devin:    { span: 6, style: 'warm', pos: 'center 35%' },
+  hannah:   { span: 4, style: '',     pos: 'center 30%' },
   cheyenne: { span: 4, style: 'sky' },
-  bobbie:   { span: 4, style: 'feat' },
+  bobbie:   { span: 4, style: 'feat', pos: 'center 25%' },
   alyssa:   { span: 4, style: 'warm' },
-  quinn:    { span: 4, style: '' },
+  quinn:    { span: 4, style: '',     pos: 'center 30%' },
   krystal:  { span: 4, style: 'sky' },
   breckan:  { span: 3, style: 'warm' },
   josie:    { span: 3, style: '' },
@@ -50,7 +50,7 @@ export default function TeamGrid() {
 
       <div className="team-grid">
         {visible.map((m) => {
-          const { span, style } = LAYOUT[m.id] ?? { span: 4, style: '' as CardStyle }
+          const { span, style, pos } = LAYOUT[m.id] ?? { span: 4, style: '' as CardStyle, pos: undefined }
           return (
             <div
               key={m.id}
@@ -63,7 +63,7 @@ export default function TeamGrid() {
                     src={m.photo}
                     alt={m.name}
                     fill
-                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    style={{ objectFit: 'cover', objectPosition: pos ?? 'center' }}
                     sizes="(max-width:768px) 100vw, 50vw"
                   />
                 ) : (
