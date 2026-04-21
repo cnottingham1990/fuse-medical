@@ -46,6 +46,13 @@ nav.top .middle button{
 }
 nav.top .middle button:hover{background:rgba(255,255,255,.15)}
 nav.top .middle button.active{border:1px solid currentColor}
+nav.top .middle a {
+  background:none;border:none;color:inherit;font:inherit;font-size:13px;
+  padding:8px 14px;border-radius:999px;cursor:pointer;letter-spacing:0.01em;
+  transition:background .2s;text-decoration:none;display:inline-block;
+}
+nav.top .middle a:hover{background:rgba(255,255,255,.15)}
+nav.top .middle a.active{border:1px solid currentColor}
 nav.top .right{justify-self:end;display:flex;align-items:center;gap:16px}
 nav.top .right .mono{font-size:11px}
 nav.top .right .dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:blink 2s ease-in-out infinite}
@@ -818,11 +825,3 @@ footer::before{
   .sch-hero{padding:110px 20px 32px}
   .sch-shell{padding:32px 20px 80px}
 }
-
-nav.top .middle a {
-  background:none;border:none;color:inherit;font:inherit;font-size:13px;
-  padding:8px 14px;border-radius:999px;cursor:pointer;letter-spacing:0.01em;
-  transition:background .2s;text-decoration:none;display:inline-block;
-}
-nav.top .middle a:hover{background:rgba(255,255,255,.15)}
-nav.top .middle a.active{border:1px solid currentColor}
