@@ -15,7 +15,7 @@ const LAYOUT: Record<string, { span: number; style: CardStyle; pos?: string; shi
   devin:    { span: 6, style: 'warm' },
   hannah:   { span: 4, style: '' },
   cheyenne: { span: 4, style: 'sky' },
-  bobbie:   { span: 4, style: 'feat', pos: 'center 28%' },
+  bobbie:   { span: 4, style: 'feat', pos: 'center 32%' },
   alyssa:   { span: 4, style: 'warm' },
   quinn:    { span: 4, style: '',     shift: -6 },
   krystal:  { span: 4, style: 'sky' },
