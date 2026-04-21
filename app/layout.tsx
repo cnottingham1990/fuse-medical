@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Serif, Inter_Tight, JetBrains_Mono } from 'next/font/google'
 import '@/styles/globals.css'
+import Nav from '@/components/Nav'
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${instrumentSerif.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <Nav />
         {children}
       </body>
     </html>
