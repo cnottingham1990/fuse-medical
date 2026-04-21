@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import { TEAM, AV_GRADIENTS, type TeamMember } from './teamData'
 
 type Filter = 'all' | 'clinical' | 'support' | 'ops'
@@ -55,13 +56,24 @@ export default function TeamDirectory() {
       </aside>
       <div className="team-detail">
         <div className="detail-inner" key={selected.id}>
-          <div
-            className="detail-portrait"
-            style={{ background: AV_GRADIENTS[selected.av] }}
-          >
-            <span className="ph-badge">Portrait · {selected.name.split(' ')[0]}</span>
-            <span className="big-init">{selected.init}</span>
-          </div>
+          {selected.photo ? (
+            <div className="detail-portrait" style={{ padding: 0, overflow: 'hidden' }}>
+              <Image
+                src={selected.photo}
+                alt={selected.name}
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'top' }}
+              />
+            </div>
+          ) : (
+            <div
+              className="detail-portrait"
+              style={{ background: AV_GRADIENTS[selected.av] }}
+            >
+              <span className="ph-badge">Portrait · {selected.name.split(' ')[0]}</span>
+              <span className="big-init">{selected.init}</span>
+            </div>
+          )}
           <h2 className="detail-heading">{selected.name} · {selected.role}</h2>
           <div className="creds">{selected.creds}</div>
           <div

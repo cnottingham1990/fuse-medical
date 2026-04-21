@@ -7,6 +7,7 @@ export type TeamMember = {
   av: string
   init: string
   bio: string
+  photo?: string
 }
 
 export const AV_GRADIENTS: Record<string, string> = {
@@ -27,6 +28,7 @@ export const TEAM: TeamMember[] = [
     cat: 'clinical',
     av: 'a-blue',
     init: 'T',
+    photo: '/images/team/tammy-whitehead.jpg',
     bio: 'With over 31 years of experience in the medical field, <strong>Dr. Tammy Whitehead</strong> is a compassionate and highly skilled provider committed to improving the lives of her patients and community.<br><br>Tammy earned her Master of Science in Nursing (MSN) degree in 2009, becoming a Family Nurse Practitioner. She advanced her education by completing a Doctorate in Nursing Practice and earning her certification as a <strong>Psychiatric-Mental Health Nurse Practitioner (PMHNP)</strong> in 2020. In 2021, Tammy and her husband Devin fulfilled a shared dream by opening Fuse Medical in their hometown of London, KY.<br><br>Tammy\'s career spans <strong>cardiology, family practice, and urgent care</strong>. As an Assistant Professor at Frontier Nursing University since 2012, she has shared her expertise with future generations of healthcare providers.<br><br>She specializes in treating individuals with severe mental illness, substance use disorders, and attention deficit disorders. Outside of her professional life, Tammy is a devoted wife, mother of three, and grandmother of seven.',
   },
   {
@@ -37,6 +39,7 @@ export const TEAM: TeamMember[] = [
     cat: 'clinical',
     av: 'a-purple',
     init: 'D',
+    photo: '/images/team/devin-whitehead.jpg',
     bio: 'With over 15 years of experience in the medical field, <strong>Dr. Devin Whitehead</strong> is a dedicated Family Nurse Practitioner known for his compassionate approach and expertise in managing chronic illnesses and providing inclusive care.<br><br>Devin earned his Master of Science in Nursing from Frontier Nursing University in 2015 and his Doctorate in Nursing Practice in 2019. During his time at Lexington Clinic, Devin demonstrated a particular passion for working with college students, addressing concerns related to <strong>gender identity and transgender care</strong>.<br><br>After the onset of the COVID-19 pandemic, Devin and Tammy returned to their hometown and opened Fuse Medical in 2021.',
   },
   {
@@ -47,6 +50,7 @@ export const TEAM: TeamMember[] = [
     cat: 'clinical',
     av: 'a-sky',
     init: 'H',
+    photo: '/images/team/hannah-norris.jpg',
     bio: 'We are thrilled to have <strong>Hannah Norris, MSN, APRN, FNP-BC</strong>, as part of our Fuse Medical team. With a passion for patient care and a wealth of expertise, Hannah is continuing to accept new patients, including walk-ins.<br><br>Her extensive background as a Family Nurse Practitioner allows her to meet a wide range of healthcare needs with excellence and empathy. Whether you\'re seeking preventive care, management of a chronic condition, or immediate walk-in services, Hannah is here to support your health and wellness journey.',
   },
   {
@@ -57,6 +61,7 @@ export const TEAM: TeamMember[] = [
     cat: 'clinical',
     av: 'a-ink',
     init: 'C',
+    photo: '/images/team/cheyenne-hamblin.jpg',
     bio: '<strong>Cheyenne Hamblin, PMHNP-BC</strong> is a dedicated psychiatric mental health nurse practitioner with more than eight years of experience in inpatient psychiatric care.<br><br>She provides compassionate, evidence-based treatment to a broad population of both adult and pediatric patients. In recognition of her outstanding service, she was named <strong>Mental Health Provider of the Year in 2025</strong> in the local area.<br><br>Outside of her professional role, Cheyenne enjoys spending time outdoors and has a genuine love for people, reflected in her warm and caring approach to patient care.',
   },
   {
@@ -67,6 +72,7 @@ export const TEAM: TeamMember[] = [
     cat: 'clinical',
     av: 'a-deep',
     init: 'B',
+    photo: '/images/team/bobbie-zhang.jpg',
     bio: '<strong>Bobbie Zhang</strong> is a board-certified Psychiatric Mental Health Nurse Practitioner with over 20 years of diverse nursing experience, including geriatrics, corrections, medical-surgical nursing, telemetry, critical care, and behavioral health.<br><br>She earned her MSN from Northern Kentucky University, specializing in psychiatric mental health care across the lifespan. Her clinical interests include <strong>ADHD, substance use disorders, mood disorders, anxiety</strong>, and other psychiatric conditions. She is experienced in medication-assisted treatment (MAT) for substance use disorders.<br><br>She is committed to delivering compassionate, trauma-informed, and patient-centered care.',
   },
   {
@@ -77,6 +83,7 @@ export const TEAM: TeamMember[] = [
     cat: 'ops',
     av: 'a-purple',
     init: 'A',
+    photo: '/images/team/alyssa-thomas.jpg',
     bio: 'Graduated from Galen College\'s Nursing School in June 2024, Alyssa brings a strong foundation in healthcare with a focus on recovery.<br><br>With experience as a <strong>Recovery Specialist since 2019</strong>, she has empowered clients to reach their goals both individually and in group settings. As a mother to four girls, they motivate her to always work hard and give 100 percent.<br><br>"I firmly believe in recognizing the value in each individual and approach my work with kindness and compassion."',
   },
   {
@@ -87,6 +94,7 @@ export const TEAM: TeamMember[] = [
     cat: 'support',
     av: 'a-blue',
     init: 'Q',
+    photo: '/images/team/audra-quinn-hunt.jpg',
     bio: '<strong>Quinn Hunt</strong> serves as a Clinical Treatment Coordinator at Fuse Medical, where she has been a dedicated member of the team since 2023.<br><br>She earned her Bachelor\'s in Business Administration from Morehead State in 2014 and her Master\'s in Mental Health Counseling from Lindsey Wilson University in 2025. Quinn brings a unique blend of clinical knowledge and organizational expertise, allowing her to effectively coordinate care and support clients throughout their treatment journey.',
   },
   {
@@ -97,6 +105,7 @@ export const TEAM: TeamMember[] = [
     cat: 'support',
     av: 'a-sky',
     init: 'K',
+    photo: '/images/team/krystal-philpot.jpg',
     bio: '<strong>Krystal Philpot, LPCA</strong>, is a dedicated mental health professional with a strong commitment to supporting individuals in achieving balanced and sustainable well-being.<br><br>She earned her BS in Psychology from Eastern Kentucky University in 2022 and her Master of Education in Counseling from Lindsey Wilson University in 2025. She has been actively working in the mental health field since 2020, primarily serving individuals with substance use disorders.',
   },
   {
@@ -107,6 +116,7 @@ export const TEAM: TeamMember[] = [
     cat: 'support',
     av: 'a-purple',
     init: 'B',
+    photo: '/images/team/breckan-fox.jpg',
     bio: '<strong>Breckan Fox</strong> serves as Director of Recovery Services and Peer Support Specialist with a strong focus on recovery services.<br><br>She plays a vital role in supporting the day-to-day operations of the <strong>Fuse Restoration Living homes</strong>, helping to ensure a stable, structured, and supportive environment for residents.',
   },
   {
@@ -117,6 +127,7 @@ export const TEAM: TeamMember[] = [
     cat: 'support',
     av: 'a-cream',
     init: 'J',
+    photo: '/images/team/josie-philpot.jpg',
     bio: '<strong>Josie</strong> is a dedicated Targeted Case Manager with one year of direct experience in case management and a strong background in behavioral health.<br><br>Josie began working in sober living environments in 2022 and has since gained over four years of experience in treatment settings as a substance abuse counselor. Josie earned a bachelor\'s degree in Substance Use Disorder Counseling from Union College in 2024, and is currently pursuing a master\'s in Education and Counseling at Lindsey Wilson College.',
   },
   {
@@ -127,6 +138,7 @@ export const TEAM: TeamMember[] = [
     cat: 'support',
     av: 'a-sky',
     init: 'K',
+    photo: '/images/team/kelsey-fox.jpg',
     bio: '<strong>Kelsey Fox</strong> has earned her master\'s degree in social work and is actively working toward licensure.<br><br>She brings over <strong>eight years of experience</strong> serving individuals from lower socioeconomic backgrounds and has developed extensive knowledge of community resources and support services. She has a deep passion for working with individuals affected by substance use disorders.',
   },
   {
@@ -137,6 +149,7 @@ export const TEAM: TeamMember[] = [
     cat: 'ops',
     av: 'a-deep',
     init: 'H',
+    photo: '/images/team/haley-whitehead.jpg',
     bio: '<strong>Haley Whitehead, RH-CBS</strong> is a highly skilled billing and coding professional with extensive experience in <strong>rural health, behavioral health, and primary care billing</strong>.<br><br>She is well-versed in working with insurance companies and has developed strong expertise in accounts receivable collection, claims management, and timely reimbursement processes.',
   },
 ]
