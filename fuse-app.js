@@ -99,17 +99,10 @@ function goTo(page){
   try{ localStorage.setItem('fuse5-page', page); }catch(e){}
 
   if(page === 'team') initTeam();
+  if(page === 'restoration') initRestorationTeam();
   if(page === 'schedule') initSchedule();
 }
 window.goTo = goTo;
-
-// restore page
-try{
-  const saved = localStorage.getItem('fuse5-page');
-  if(saved && ['home','team','restoration','schedule'].includes(saved)){
-    goTo(saved);
-  }
-}catch(e){}
 
 // ============ TEAM ============
 const TEAM = [
@@ -123,10 +116,6 @@ const TEAM = [
     `With over 15 years of experience in the medical field, <strong>Dr. Devin Whitehead</strong> is a dedicated Family Nurse Practitioner known for his compassionate approach and expertise in managing chronic illnesses and providing inclusive care.`,
     `Devin earned his Master of Science in Nursing from Frontier Nursing University in 2015 and his Doctorate in Nursing Practice in 2019. During his time at Lexington Clinic, Devin demonstrated a particular passion for working with college students, addressing concerns related to <strong>gender identity and transgender care</strong>.`,
     `After the onset of the COVID-19 pandemic, Devin and Tammy returned to their hometown and opened Fuse Medical in 2021.`
-  ]},
-  {id:'hannah', name:'Hannah Norris', role:'Family Nurse Practitioner', cat:'clinical', tone:'a-sky', tag:'MSN, APRN, FNP-BC', photo:'images/team/hannah-norris.jpg', bio:[
-    `We are thrilled to have <strong>Hannah Norris, MSN, APRN, FNP-BC</strong>, as part of our Fuse Medical team. With a passion for patient care and a wealth of expertise, Hannah is continuing to accept new patients, including walk-ins.`,
-    `Her extensive background as a Family Nurse Practitioner allows her to meet a wide range of healthcare needs with excellence and empathy. Whether you're seeking preventive care, management of a chronic condition, or immediate walk-in services, Hannah is here to support your health and wellness journey.`
   ]},
   {id:'cheyenne', name:'Cheyenne Hamblin', role:'Psychiatric Mental Health NP', cat:'clinical', tone:'a-ink', tag:'MSN, APRN, PMHNP-BC', photo:'images/team/cheyenne-hamblin.jpg', bio:[
     `<strong>Cheyenne Hamblin, PMHNP-BC</strong> is a dedicated psychiatric mental health nurse practitioner with more than eight years of experience in inpatient psychiatric care.`,
@@ -155,11 +144,11 @@ const TEAM = [
     `<strong>Breckan Fox</strong> serves as Director of Recovery Services and Peer Support Specialist with a strong focus on recovery services.`,
     `She plays a vital role in supporting the day-to-day operations of the <strong>Fuse Restoration Living homes</strong>, helping to ensure a stable, structured, and supportive environment for residents.`
   ]},
-  {id:'josie', name:'Josie Philpot', role:'Targeted Case Manager', cat:'support', tone:'a-cream', tag:'BS, TCM, TCADC', photo:'images/team/josie-philpot.jpg', bio:[
+  {id:'josie', name:'Josie Philpot', role:'Targeted Case Manager', cat:'restoration', tone:'a-cream', tag:'BS, TCM, TCADC', photo:'images/team/josie-philpot.jpg', bio:[
     `<strong>Josie</strong> is a dedicated Targeted Case Manager with one year of direct experience in case management and a strong background in behavioral health.`,
     `Josie began working in sober living environments in 2022 and has since gained over four years of experience in treatment settings as a substance abuse counselor. Josie earned a bachelor's degree in Substance Use Disorder Counseling from Union College in 2024, and is currently pursuing a master's in Education and Counseling at Lindsey Wilson College.`
   ]},
-  {id:'kelsey', name:'Kelsey Fox', role:'Social Work Professional', cat:'support', tone:'a-sky', tag:'MS, TCM', photo:'images/team/kelsey-fox.jpg', bio:[
+  {id:'kelsey', name:'Kelsey Fox', role:'Social Work Professional', cat:'restoration', tone:'a-sky', tag:'MS, TCM', photo:'images/team/kelsey-fox.jpg', bio:[
     `<strong>Kelsey Fox</strong> has earned her master's degree in social work and is actively working toward licensure.`,
     `She brings over <strong>eight years of experience</strong> serving individuals from lower socioeconomic backgrounds and has developed extensive knowledge of community resources and support services. She has a deep passion for working with individuals affected by substance use disorders.`
   ]},
@@ -167,15 +156,29 @@ const TEAM = [
     `<strong>Haley Whitehead, RH-CBS</strong> is a highly skilled billing and coding professional with extensive experience in <strong>rural health, behavioral health, and primary care billing</strong>.`,
     `She is well-versed in working with insurance companies and has developed strong expertise in accounts receivable collection, claims management, and timely reimbursement processes.`
   ]},
+  {id:'leeandra', name:'Leeandra Hill', role:'Nurse Practitioner', cat:'clinical', tone:'a-cream', tag:'MSN, APRN', photo:'images/team/leeandra-hill.jpg', bio:[
+    `<strong>Leeandra Hill</strong> began her journey in healthcare in 2013 as an SRNA. Through a mix of life experiences, she was inspired to further her education and expand her ability to help others. She graduated with her RN from Somerset Community College in December 2019, then went on to earn her BSN in 2021 and her MSN in 2025 from the University of the Cumberlands.`,
+    `Leeandra worked as an RN during the COVID-19 pandemic, which helped her develop the ability to stay calm under pressure, adapt quickly, and provide compassionate care during challenging times.`,
+    `As an APRN, she is committed to delivering high-quality, patient-centered care. She believes in treating the whole person and strives to make every patient feel heard, respected, and truly cared for.`
+  ]},
 ];
 
 let stackIndex = 0;
 const FEATURED = ['tammy','devin','cheyenne','bobbie','hannah'];
 
+// restore page (deferred one tick so DOM is fully ready)
+setTimeout(()=>{
+  try{
+    const saved = localStorage.getItem('fuse5-page');
+    if(saved && ['home','team','restoration','schedule'].includes(saved)){
+      goTo(saved);
+    }
+  }catch(e){}
+}, 0);
+
 function initTeam(){
   const stack = document.getElementById('team-stack');
-  if(!stack || stack.dataset.init) return;
-  stack.dataset.init = '1';
+  if(!stack) return;
 
   // nav
   const navHTML = `<div class="stack-nav">
@@ -222,7 +225,7 @@ function initTeam(){
   const filter = document.getElementById('team-filter');
   function renderGrid(cat='all'){
     grid.innerHTML = '';
-    TEAM.filter(t => cat==='all' || t.cat===cat).forEach(t=>{
+    TEAM.filter(t => t.cat !== 'restoration' && (cat==='all' || t.cat===cat)).forEach(t=>{
       const card = document.createElement('div');
       card.className = 'tg-card';
       card.innerHTML = `
@@ -266,6 +269,30 @@ function openModal(t){
 }
 function closeModal(){ document.getElementById('modal-backdrop').classList.remove('open'); }
 window.closeModal = closeModal;
+
+// ============ RESTORATION TEAM ============
+function initRestorationTeam(){
+  const grid = document.getElementById('rest-team-grid');
+  if(!grid) return;
+  TEAM.filter(t => t.cat === 'restoration').forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'tg-card';
+    card.innerHTML = `
+      <div class="tg-portrait ${t.tone}">
+        ${t.photo ? `<img class="portrait-photo" src="${t.photo}" alt="${t.name}">` : `<div class="initial">${t.name[0]}</div>`}
+        <span class="ph-tag">${t.tag}</span>
+      </div>
+      <div class="tg-body">
+        <div class="role"><span class="dot"></span>${t.role}</div>
+        <h3>${t.name}</h3>
+        <div class="creds">${t.tag}</div>
+        <div class="read">Read bio</div>
+      </div>`;
+    card.addEventListener('click', ()=>openModal(t));
+    grid.appendChild(card);
+  });
+  bindTilt();
+}
 
 // ============ SCHEDULE ============
 const REASONS = [

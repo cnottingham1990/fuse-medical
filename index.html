@@ -758,7 +758,6 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
 /* Floating journey doors */
 .rest-doors-stage{
   margin-top:80px;position:relative;perspective:1800px;
-  height:360px;
 }
 .rest-doors{
   display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
@@ -1114,25 +1113,101 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
   .team-stack .stack-card{width:300px;height:400px}
 }
 @media (max-width:640px){
-  nav.top{left:20px;right:20px;transform:none;padding:6px 6px 6px 14px}
-  nav.top .brand{padding-right:10px;margin-right:4px}
-  nav.top .brand-txt{font-size:16px}
-  nav.top .middle button{padding:8px 10px;font-size:11px}
+  /* NAV */
+  nav.top{left:12px;right:12px;transform:none;padding:6px 6px 6px 10px}
+  nav.top .brand{padding-right:8px;margin-right:4px}
+  nav.top .brand-logo{max-width:80px}
+  nav.top .brand-txt{font-size:14px}
+  nav.top .middle button{padding:6px 8px;font-size:10px}
   nav.top .right{display:none}
-  main{padding-top:80px}
-  .hero,.team-hero,.sch-hero,.rest-hero{padding-left:20px;padding-right:20px}
-  .hero h1,.team-hero h1,.sch-hero h1,.rest-hero h1{font-size:clamp(48px,13vw,88px)}
-  .hero-stats{grid-template-columns:1fr 1fr}
+
+  /* MAIN */
+  main{padding-top:72px}
+
+  /* HERO SECTIONS */
+  .hero{padding:72px 20px 40px}
+  .team-hero,.sch-hero,.rest-hero{padding:80px 20px 40px}
+
+  /* INTERIOR SECTIONS */
+  .services,.why,.feature,.contact,.family{padding:60px 20px 40px}
+  .mission,.values{padding:60px 20px 40px}
+  .ndiscrim{padding:40px 16px}
+  .ndiscrim-bg{inset:0;border-radius:24px}
+  .ndiscrim-wrap{padding:40px 24px;grid-template-columns:1fr;gap:32px}
+  .sch-shell{padding:32px 20px 60px}
+  footer{padding:56px 20px 32px}
+
+  /* HEADINGS */
+  .hero h1,.team-hero h1,.sch-hero h1,.rest-hero h1{font-size:clamp(44px,12vw,80px)}
+  .services-head h2,.why-head h2,.contact-head h2,.family h2{font-size:clamp(40px,12vw,72px)}
+  .footer-mega{font-size:clamp(40px,12vw,72px);margin-bottom:40px}
+
+  /* HERO INTERNALS */
+  .hero-rail{flex-wrap:wrap;gap:8px;padding:10px 14px}
+  .hero-rail .tr{display:none}
+  .hero-kicker{flex-wrap:wrap;gap:8px;margin-bottom:24px;font-size:10px}
+  .hero-bot{grid-template-columns:1fr;gap:20px}
+  .hero-bot p{font-size:15px}
+  .actions{flex-wrap:wrap;gap:8px}
+  .hero-stats{grid-template-columns:1fr 1fr;margin-top:40px}
+  .hero-stat{padding:18px 14px}
+
+  /* HERO ORBS — scale down for mobile */
+  .hero-orb.ho1{width:240px;height:240px;top:5%;right:-50px}
+  .hero-orb.ho2{width:160px;height:160px;top:42%;right:8%}
+  .hero-orb.ho3,.hero-orb.ho4{display:none}
+
+  /* GRIDS */
   .svc-grid,.pillars,.team-grid,.q-grid,.sch-reasons,.sch-providers{grid-template-columns:1fr}
+
+  /* SERVICES HEAD */
+  .services-head{gap:24px;margin-bottom:40px}
+  .services-head p{justify-self:start}
+
+  /* WHY HEAD */
+  .why-head{gap:24px;margin-bottom:40px}
+
+  /* FEATURE */
+  .feature-r{padding:32px 24px;transform:none}
+  .feature-r blockquote{font-size:22px}
+
+  /* CONTACT */
+  .c-row{grid-template-columns:1fr;gap:2px;padding:14px 0}
+  .c-row .k{padding-top:0}
+  .c-row .v{font-size:18px}
+
+  /* VALUES */
+  .v-row{grid-template-columns:52px 1fr 36px;gap:12px;padding:24px 0}
+  .v-row .no{font-size:36px}
+  .v-row .txt{font-size:clamp(22px,6vw,34px)}
+
+  /* NON-DISCRIM TAGS */
+  .nd-tags{grid-template-columns:repeat(2,1fr)}
+
+  /* FOOTER */
   .footer-grid{grid-template-columns:1fr}
+  .footer-bot{flex-direction:column;gap:6px}
+
+  /* SCHEDULE */
   .sch-slot-grid{grid-template-columns:repeat(2,1fr)}
   .sch-form{grid-template-columns:1fr}
   .sch-form .full{grid-column:span 1}
+  .sch-step{padding:24px 20px}
+  .sch-confirm{padding:40px 24px}
+  .sch-confirm-card{grid-template-columns:1fr}
+
+  /* RESTORATION */
   .rest-doors{grid-template-columns:1fr;max-width:300px}
+
+  /* TEAM STACK */
   .team-stack .stack-card{width:260px;height:360px}
   .team-stack .stack-card[data-pos="-2"],.team-stack .stack-card[data-pos="2"]{opacity:0;pointer-events:none}
   .team-stack .stack-card[data-pos="-1"]{transform:translateX(-120px) translateZ(-30px) rotateY(10deg)}
   .team-stack .stack-card[data-pos="1"]{transform:translateX(120px) translateZ(-30px) rotateY(-10deg)}
+
+  /* MODAL */
+  .modal-backdrop{padding:12px}
+  .modal-content{padding:32px 20px}
 }
 </style>
 </head>
@@ -1297,11 +1372,11 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
         <div class="mono mono-label">№ 02 — Why Fuse</div>
         <h2>The care<br>you deserve,<br><span class="it">delivered with heart.</span></h2>
       </div>
-      <div class="why-head-img"><span class="ph-tag">Image · care in action</span></div>
+      <div class="why-head-img"><img src="images/why-hero.jpg" alt="Care in action" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px"><span class="ph-tag">Care in action</span></div>
     </div>
     <div class="pillars">
       <div class="pillar tilt">
-        <div class="pillar-img p1"><span class="ph-tag">Patient-centered</span></div>
+        <div class="pillar-img p1"><img src="images/pillar-patient.jpg" alt="Patient-centered care" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity"><span class="ph-tag">Patient-centered</span></div>
         <div class="pillar-body">
           <div class="num">01</div>
           <h4>Patient-centered</h4>
@@ -1310,7 +1385,7 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
         </div>
       </div>
       <div class="pillar tilt">
-        <div class="pillar-img p2"><span class="ph-tag">Experienced team</span></div>
+        <div class="pillar-img p2"><img src="images/pillar-team.jpg" alt="Experienced team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity"><span class="ph-tag">Experienced team</span></div>
         <div class="pillar-body">
           <div class="num">02</div>
           <h4>Experienced team</h4>
@@ -1319,7 +1394,7 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
         </div>
       </div>
       <div class="pillar tilt">
-        <div class="pillar-img p3"><span class="ph-tag">Whole-family care</span></div>
+        <div class="pillar-img p3"><img src="images/pillar-family.jpg" alt="Whole-family care" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity"><span class="ph-tag">Whole-family care</span></div>
         <div class="pillar-body">
           <div class="num">03</div>
           <h4>Whole-family care</h4>
@@ -1328,7 +1403,7 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
         </div>
       </div>
       <div class="pillar tilt">
-        <div class="pillar-img p4"><span class="ph-tag">One coordinated team</span></div>
+        <div class="pillar-img p4"><img src="images/pillar-coordinated.jpg" alt="One coordinated team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity"><span class="ph-tag">One coordinated team</span></div>
         <div class="pillar-body">
           <div class="num">04</div>
           <h4>One coordinated team</h4>
@@ -1417,7 +1492,7 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
       <h1>Meet the<br><span class="it">team.</span></h1>
       <div class="lede">
         <p>A dedicated community of clinicians, counselors, peer specialists and coordinators — each bringing decades of combined experience, and a shared belief that healing begins with being heard.</p>
-        <div class="meta">12 Members<br>3 Departments</div>
+        <div class="meta">10 Members<br>3 Departments</div>
       </div>
     </div>
   </section>
@@ -1490,6 +1565,13 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
         <p>Fuse Restoration Living exists to provide more than housing — we provide a home. A place where people in recovery are met with compassion, accountability, and the consistent support it takes to rebuild a life.</p>
         <p>Every resident is paired with a peer support specialist and integrated into a care plan that spans our clinical services, behavioral health, and community partnerships. Because recovery isn't one program — it's a whole-person journey.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="team-stage" style="padding-top:0">
+    <div class="team-stage-wrap" style="max-width:1400px;margin:0 auto;padding:0 32px 80px">
+      <div class="mono mono-label" style="color:var(--blue);display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:24px;height:1px;background:currentColor;display:inline-block"></span>The Restoration Team</div>
+      <div class="team-grid" id="rest-team-grid" style="grid-template-columns:repeat(2,1fr);max-width:680px"></div>
     </div>
   </section>
 
@@ -1578,118 +1660,19 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
       <div class="mono mono-label">№ 04 — Book an appointment</div>
       <h1>Schedule<br>a <span class="it">visit.</span></h1>
       <div class="sch-hero-sub">
-        <p>Reserve a time in just a few steps. For same-day walk-ins, urgent mental health concerns, or recovery intake, please call <a href="tel:6067705161" style="color:var(--blue);font-weight:500">(606) 770‑5161</a>.</p>
-        <div class="progress-rail" id="sch-progress"></div>
+        <p>Book your appointment below. For same-day walk-ins, urgent mental health concerns, or recovery intake, please call <a href="tel:6067705161" style="color:var(--blue);font-weight:500">(606) 770‑5161</a>.</p>
       </div>
     </div>
   </section>
 
   <section class="sch-shell">
-    <div class="sch-wrap" id="sch-wrap">
-      <div class="sch-panel" id="sch-panel">
-        <div class="sch-step" id="step-reason">
-          <div class="sch-step-head">
-            <span class="num">§01</span>
-            <h2>What brings you in?</h2>
-            <span class="hint">Select one</span>
-          </div>
-          <div class="sch-reasons" id="reasons"></div>
-        </div>
-
-        <div class="sch-step" id="step-provider">
-          <div class="sch-step-head">
-            <span class="num">§02</span>
-            <h2>Choose a provider</h2>
-            <span class="hint">Or let us match you</span>
-          </div>
-          <div class="sch-providers" id="providers"></div>
-        </div>
-
-        <div class="sch-step" id="step-datetime">
-          <div class="sch-step-head">
-            <span class="num">§03</span>
-            <h2>Pick a date &amp; time</h2>
-            <span class="hint">Eastern time (ET)</span>
-          </div>
-          <div class="sch-cal-wrap">
-            <div>
-              <div class="sch-cal-head">
-                <div class="mo"><span id="cal-month">—</span> <span class="yr" id="cal-year"></span></div>
-                <div class="sch-cal-nav">
-                  <button id="cal-prev" aria-label="Previous month"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                  <button id="cal-next" aria-label="Next month"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                </div>
-              </div>
-              <div class="sch-cal">
-                <div class="sch-cal-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
-                <div class="sch-cal-grid" id="cal-grid"></div>
-              </div>
-              <div class="sch-cal-legend">
-                <span class="av">Available</span>
-                <span class="tdy">Today</span>
-                <span>Closed</span>
-              </div>
-            </div>
-            <div class="sch-slots-col" id="slots-col"></div>
-          </div>
-        </div>
-
-        <div class="sch-step" id="step-info">
-          <div class="sch-step-head">
-            <span class="num">§04</span>
-            <h2>Your information</h2>
-            <span class="hint">Kept private</span>
-          </div>
-          <div class="sch-form">
-            <div><label>First name *</label><input type="text" id="f-first" required></div>
-            <div><label>Last name *</label><input type="text" id="f-last" required></div>
-            <div><label>Date of birth *</label><input type="text" id="f-dob" placeholder="MM / DD / YYYY" required></div>
-            <div><label>Phone *</label><input type="tel" id="f-phone" placeholder="(606) 555‑0123" required></div>
-            <div class="full"><label>Email *</label><input type="email" id="f-email" required></div>
-            <div><label>New or returning? *</label>
-              <select id="f-kind" required>
-                <option value="">Select one</option>
-                <option>New patient</option>
-                <option>Returning patient</option>
-              </select>
-            </div>
-            <div><label>Insurance (optional)</label><input type="text" id="f-ins" placeholder="e.g. Anthem BCBS"></div>
-            <div class="full"><label>Anything we should know? (optional)</label><textarea id="f-notes" placeholder="Concerns, accessibility needs, preferred contact…"></textarea></div>
-            <label class="chk full"><input type="checkbox" id="f-consent" required><span>I consent to Fuse Medical contacting me about this appointment at the phone number and email provided.</span></label>
-          </div>
-        </div>
-      </div>
-
-      <aside class="sch-summary" id="sch-summary">
-        <div class="sch-summary-inner">
-          <div class="sum-kicker">Your appointment</div>
-          <h3>A visit<br>tailored for <span class="it">you.</span></h3>
-          <div class="sum-row"><div class="k">Reason</div><div class="v empty" id="sum-reason">Not yet selected</div></div>
-          <div class="sum-row"><div class="k">Provider</div><div class="v empty" id="sum-prov">Not yet selected</div></div>
-          <div class="sum-row"><div class="k">When</div><div class="v empty" id="sum-when">Pick a date &amp; time</div></div>
-          <div class="sum-row"><div class="k">Patient</div><div class="v empty" id="sum-pat">Enter your information</div></div>
-          <div class="sum-office">
-            <div><span class="k">Visit</span>202 W 7th St<br>London, KY 40741</div>
-            <div><span class="k">Questions</span><a href="tel:6067705161" style="color:inherit">(606) 770‑5161</a></div>
-          </div>
-          <div class="sch-actions">
-            <button class="sch-back" id="sch-back" disabled>Back</button>
-            <button class="sch-next" id="sch-next" disabled>Continue <span class="arr">→</span></button>
-          </div>
-        </div>
-      </aside>
-
-      <div class="sch-confirm" id="sch-confirm" style="display:none;grid-column:1/-1">
-        <div class="check">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M9 18l6 6 12-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h2>You're <span class="it">booked.</span></h2>
-        <p class="conf-sub">We've sent a confirmation to <strong id="conf-email">your inbox</strong>. A member of our team may reach out beforehand to verify insurance and answer any questions.</p>
-        <div class="sch-confirm-card" id="conf-card"></div>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <button class="btn btn-d" onclick="goTo('home')">Back to home</button>
-          <button class="btn btn-o" onclick="resetSchedule()">Book another <span class="arr">→</span></button>
-        </div>
+    <div style="max-width:800px;margin:0 auto;padding:0 32px 100px;text-align:center">
+      <div style="background:rgba(253,251,245,.7);backdrop-filter:blur(16px);border:1px solid rgba(230,223,209,.6);border-radius:24px;padding:64px 48px;box-shadow:var(--d-3)">
+        <div class="mono" style="color:var(--blue);letter-spacing:.12em;font-size:11px;margin-bottom:20px">ONLINE SCHEDULING</div>
+        <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(36px,5vw,56px);font-weight:400;letter-spacing:-.025em;line-height:1;margin-bottom:16px">Book your<br><span style="font-style:italic;color:var(--blue)">appointment.</span></h2>
+        <p style="color:var(--ink-2);font-size:16px;line-height:1.6;max-width:42ch;margin:0 auto 40px">Click below to open our secure scheduling portal. You'll be able to choose a provider, select a time, and confirm your visit in just a few steps.</p>
+        <a href="https://www.tebra.com/practice/x67qw39ms52c/appointment" target="_blank" rel="noopener" class="btn btn-d" style="display:inline-flex;font-size:15px;padding:18px 36px">Book online <span class="arr">→</span></a>
+        <p style="margin-top:28px;font-size:13px;color:var(--muted)">Prefer to call? <a href="tel:6067705161" style="color:var(--blue)">(606) 770‑5161</a></p>
       </div>
     </div>
   </section>
@@ -1716,6 +1699,6 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
   </div>
 </footer>
 
-<script src="fuse-app.js"></script>
+<script src="fuse-app.js?v=3"></script>
 </body>
 </html>
