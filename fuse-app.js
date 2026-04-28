@@ -132,7 +132,7 @@ const TEAM = [
     `With experience as a <strong>Recovery Specialist since 2019</strong>, she has empowered clients to reach their goals both individually and in group settings. As a mother to four girls, they motivate her to always work hard and give 100 percent.`,
     `"I firmly believe in recognizing the value in each individual and approach my work with kindness and compassion."`
   ]},
-  {id:'quinn', name:'Audra "Quinn" Hunt', role:'Clinical Treatment Coordinator', cat:'support', tone:'a-blue', tag:'BBA, MA Mental Health Counseling', photo:'images/team/audra-quinn-hunt.jpg', bio:[
+  {id:'quinn', name:'Audra "Quinn" Hunt', role:'Clinical Treatment Coordinator', cat:'support', tone:'a-blue', tag:'LPCA', photo:'images/team/audra-quinn-hunt.jpg', bio:[
     `<strong>Quinn Hunt</strong> serves as a Clinical Treatment Coordinator at Fuse Medical, where she has been a dedicated member of the team since 2023.`,
     `She earned her Bachelor's in Business Administration from Morehead State in 2014 and her Master's in Mental Health Counseling from Lindsey Wilson University in 2025. Quinn brings a unique blend of clinical knowledge and organizational expertise, allowing her to effectively coordinate care and support clients throughout their treatment journey.`
   ]},
