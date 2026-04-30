@@ -1086,6 +1086,7 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
 }
 .sch-confirm .check::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid var(--blue);opacity:.4;animation:ringPulse 2.4s ease-in-out infinite}
 @keyframes ringPulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.3);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
 .sch-confirm h2{font-family:'Instrument Serif',serif;font-size:clamp(44px,5vw,60px);font-weight:400;letter-spacing:-0.025em;line-height:1;margin-bottom:14px}
 .sch-confirm h2 .it{font-style:italic;color:var(--blue)}
 .sch-confirm .conf-sub{color:var(--ink-2);font-size:17px;max-width:46ch;margin:0 auto 40px;line-height:1.6}
@@ -1693,13 +1694,33 @@ footer::after{content:"";position:absolute;bottom:-150px;left:-80px;width:400px;
   </section>
 
   <section class="sch-shell">
-    <div style="max-width:800px;margin:0 auto;padding:0 32px 100px;text-align:center">
-      <div style="background:rgba(253,251,245,.7);backdrop-filter:blur(16px);border:1px solid rgba(230,223,209,.6);border-radius:24px;padding:64px 48px;box-shadow:var(--d-3)">
-        <div class="mono" style="color:var(--blue);letter-spacing:.12em;font-size:11px;margin-bottom:20px">ONLINE SCHEDULING</div>
-        <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(36px,5vw,56px);font-weight:400;letter-spacing:-.025em;line-height:1;margin-bottom:16px">Book your<br><span style="font-style:italic;color:var(--blue)">appointment.</span></h2>
-        <p style="color:var(--ink-2);font-size:16px;line-height:1.6;max-width:42ch;margin:0 auto 40px">Click below to open our secure scheduling portal. You'll be able to choose a provider, select a time, and confirm your visit in just a few steps.</p>
-        <a href="https://www.tebra.com/practice/x67qw39ms52c/appointment" target="_blank" rel="noopener" class="btn btn-d" style="display:inline-flex;font-size:15px;padding:18px 36px">Book online <span class="arr">→</span></a>
-        <p style="margin-top:28px;font-size:13px;color:var(--muted)">Prefer to call? <a href="tel:6067705161" style="color:var(--blue)">(606) 770‑5161</a></p>
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px 100px">
+
+      <div id="tebra-embed-wrap" style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(230,223,209,.6);box-shadow:var(--d-3);background:var(--bg-2);min-height:780px">
+
+        <!-- loading state -->
+        <div id="tebra-loading" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:1;pointer-events:none">
+          <div style="width:36px;height:36px;border:2.5px solid rgba(13,119,186,.2);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Loading scheduler…</div>
+        </div>
+
+        <iframe
+          id="tebra-frame"
+          src="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_98593"
+          title="Online Appointment Scheduling — Fuse Medical"
+          width="100%"
+          height="780"
+          frameborder="0"
+          scrolling="yes"
+          allow="payment"
+          style="display:block;border:none;min-height:780px;opacity:0;transition:opacity .4s"
+          onload="document.getElementById('tebra-loading').style.display='none';this.style.opacity='1'"
+        ></iframe>
+      </div>
+
+      <!-- fallback -->
+      <div style="margin-top:24px;text-align:center;font-size:13px;color:var(--muted)">
+        Having trouble? <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_98593" target="_blank" rel="noopener" style="color:var(--blue)">Open scheduler in a new tab</a> &nbsp;·&nbsp; Prefer to call? <a href="tel:6067705161" style="color:var(--blue)">(606) 770‑5161</a>
       </div>
     </div>
   </section>
