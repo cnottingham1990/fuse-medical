@@ -164,7 +164,8 @@ const TEAM = [
 ];
 
 let stackIndex = 0;
-const FEATURED = ['tammy','devin','cheyenne','bobbie','hannah'];
+const HIDDEN_IDS = ['bobbie','josie','kelsey'];
+const FEATURED = ['tammy','devin','cheyenne'].filter(id => !HIDDEN_IDS.includes(id));
 
 // restore page (deferred one tick so DOM is fully ready)
 setTimeout(()=>{
@@ -225,7 +226,7 @@ function initTeam(){
   const filter = document.getElementById('team-filter');
   function renderGrid(cat='all'){
     grid.innerHTML = '';
-    TEAM.filter(t => t.cat !== 'restoration' && (cat==='all' || t.cat===cat)).forEach(t=>{
+    TEAM.filter(t => t.cat !== 'restoration' && !HIDDEN_IDS.includes(t.id) && (cat==='all' || t.cat===cat)).forEach(t=>{
       const card = document.createElement('div');
       card.className = 'tg-card';
       card.innerHTML = `
@@ -274,7 +275,8 @@ window.closeModal = closeModal;
 function initRestorationTeam(){
   const grid = document.getElementById('rest-team-grid');
   if(!grid) return;
-  TEAM.filter(t => t.cat === 'restoration').forEach(t => {
+  return; // restoration team section hidden — see index.html
+  TEAM.filter(t => t.cat === 'restoration' && !HIDDEN_IDS.includes(t.id)).forEach(t => {
     const card = document.createElement('div');
     card.className = 'tg-card';
     card.innerHTML = `
